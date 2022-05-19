@@ -1,0 +1,124 @@
+version: "3.9"
+services:
+  # config servers
+  configsvr1:
+    container_name: configsvr1
+    image: mongo:4.4.14
+    networks:
+      mongo:
+        ipv4_address: 172.22.0.11
+    volumes:
+      - ./configsvr1/data/db:/data/db
+      - ./configsvr1/data/configdb:/data/configdb
+    command: --configsvr --replSet "configsvr_rs" --bind_ip_all
+    restart: always
+  configsvr2:
+    container_name: configsvr2
+    image: mongo:4.4.14
+    networks:
+      mongo:
+        ipv4_address: 172.22.0.12
+    volumes:
+      - ./configsvr2/data/db:/data/db
+      - ./configsvr2/data/configdb:/data/configdb
+    command: --configsvr --replSet "configsvr_rs" --bind_ip_all
+    restart: always
+  configsvr3:
+    container_name: configsvr3
+    image: mongo:4.4.14
+    networks:
+      mongo:
+        ipv4_address: 172.22.0.13
+    volumes:
+      - ./configsvr3/data/db:/data/db
+      - ./configsvr3/data/configdb:/data/configdb
+    command: --configsvr --replSet "configsvr_rs" --bind_ip_all
+    restart: always
+  # config servers
+  shardsvr1:
+    container_name: shardsvr1
+    networks:
+      mongo:
+        ipv4_address: 172.22.0.21
+    image: mongo:4.4.14
+    volumes:
+      - ./shardsvr1/data/db:/data/db
+      - ./shardsvr1/data/configdb:/data/configdb
+    command: --shardsvr --replSet "shardsvr_rs1" --bind_ip_all
+    restart: always
+    depends_on:
+      - configsvr1
+      - configsvr2
+      - configsvr3
+  shardsvr2:
+    container_name: shardsvr2
+    networks:
+      mongo:
+        ipv4_address: 172.22.0.22
+    image: mongo:4.4.14
+    volumes:
+      - ./shardsvr2/data/db:/data/db
+      - ./shardsvr2/data/configdb:/data/configdb
+    command: --shardsvr --replSet "shardsvr_rs1" --bind_ip_all
+    restart: always
+    depends_on:
+      - configsvr1
+      - configsvr2
+      - configsvr3
+  shardsvr3:
+    container_name: shardsvr3
+    networks:
+      mongo:
+        ipv4_address: 172.22.0.23
+    image: mongo:4.4.14
+    volumes:
+      - ./shardsvr3/data/db:/data/db
+      - ./shardsvr3/data/configdb:/data/configdb
+    command: --shardsvr --replSet "shardsvr_rs2" --bind_ip_all
+    restart: always
+    depends_on:
+      - configsvr1
+      - configsvr2
+      - configsvr3
+  shardsvr4:
+    container_name: shardsvr4
+    networks:
+      mongo:
+        ipv4_address: 172.22.0.24
+    image: mongo:4.4.14
+    volumes:
+      - ./shardsvr4/data/db:/data/db
+      - ./shardsvr4/data/configdb:/data/configdb
+    command: --shardsvr --replSet "shardsvr_rs2" --bind_ip_all
+    restart: always
+    depends_on:
+      - configsvr1
+      - configsvr2
+      - configsvr3
+  # mongos
+  mongos:
+    container_name: mongos
+    networks:
+      mongo:
+        ipv4_address: 172.22.0.2
+    image: mongo:4.4.14
+    volumes:
+      - ./mongos/data/db:/data/db
+      - ./mongos/data/configdb:/data/configdb
+    entrypoint: mongos
+    command: --configdb configsvr_rs/172.22.0.11:27019,172.22.0.12:27019,172.22.0.13:27019 --bind_ip_all
+    depends_on:
+      - configsvr1
+      - configsvr2
+      - configsvr3
+      - shardsvr1
+      - shardsvr2
+      - shardsvr3
+      - shardsvr4
+
+networks:
+  mongo:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.1/24
