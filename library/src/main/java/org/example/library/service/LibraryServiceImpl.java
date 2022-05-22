@@ -57,7 +57,21 @@ public class LibraryServiceImpl implements LibraryService {
   }
 
   @Override
-  public void queryPicture(String pictureName, OutputStream outputStream) {}
+  public void queryPicture(String pictureName, OutputStream outputStream) {
+    try {
+      try (InputStream inputStream = getPictureInputStream(pictureName)) {
+        IOUtils.copy(inputStream, outputStream);
+        outputStream.flush();
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private InputStream getPictureInputStream(String pictureName) throws FileNotFoundException {
+    File file = new File("E:\\Homework\\DDBMS\\85.jpg");
+    return new FileInputStream(file);
+  }
 
   @Override
   public void queryVideo(String videoName, OutputStream outputStream) {

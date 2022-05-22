@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -68,13 +67,12 @@ public class LibraryController {
     return ResponseEntity.ok(libraryService.searchArticleBeRead(beReadRequest));
   }
 
-  @RequestMapping(value = "/picture", method = RequestMethod.GET)
-  public void queryPicture(@RequestParam String pictureName, HttpServletResponse response) {
+  @RequestMapping(value = "/picture/{pictureName}", method = RequestMethod.GET)
+  public void queryPicture(@PathVariable String pictureName, HttpServletResponse response) {
     try {
       response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
       response.setHeader("Content-Disposition", "attachment; filename=" + pictureName);
       libraryService.queryPicture(pictureName, response.getOutputStream());
-      response.flushBuffer();
     } catch (IOException e) {
       e.printStackTrace();
       response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
