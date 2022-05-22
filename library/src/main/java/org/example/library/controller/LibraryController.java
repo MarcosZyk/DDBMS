@@ -84,15 +84,9 @@ public class LibraryController {
   @RequestMapping(value = "/video/{videoName}", method = RequestMethod.GET)
   public void queryVideo(@PathVariable String videoName, HttpServletResponse response) {
     try {
-
-      response.setBufferSize(20 * 1024 * 1024);
-      response.setContentLength(20 * 1024 * 1024);
       response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
       response.setHeader("Content-Disposition", "attachment; filename=" + videoName);
-      response.setHeader("Keep-Alive", "timeout=300000");
       libraryService.queryVideo(videoName, response.getOutputStream());
-
-      response.flushBuffer();
     } catch (IOException e) {
       e.printStackTrace();
       response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());

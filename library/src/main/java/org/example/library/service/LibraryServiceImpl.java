@@ -64,6 +64,7 @@ public class LibraryServiceImpl implements LibraryService {
     try {
       try (InputStream inputStream = getVideoInputStream(videoName)) {
         IOUtils.copy(inputStream, outputStream);
+        outputStream.flush();
       }
     } catch (IOException e) {
       e.printStackTrace();
