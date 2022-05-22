@@ -8,6 +8,7 @@ import org.example.library.request.BeReadRequest;
 import org.example.library.request.ReadRequest;
 import org.example.library.request.UserRequest;
 
+import java.io.OutputStream;
 import java.util.List;
 
 public interface LibraryService {
@@ -25,4 +26,8 @@ public interface LibraryService {
   List<ReadDetail> searchUserRead(ReadRequest readRequest);
 
   List<ReadDetail> searchArticleBeRead(BeReadRequest beReadRequest);
+
+  void queryPicture(String pictureName, OutputStream outputStream);
+
+  void queryVideo(String videoName, OutputStream outputStream);
 }

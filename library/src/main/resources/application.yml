@@ -4,3 +4,24 @@ spring:
   jackson:
     time-zone: GMT+8
 
+
+# tomcat access log config
+server:
+
+
+  tomcat:
+    accesslog:
+      #日志有效天数
+      max-days: 7
+      #是否开启日志
+      enabled: true
+      #日志前缀
+      prefix: localhost_access_log
+      #tomcat accesslog日志存储目录
+      directory:
+      #tomcat accesslog日志格式
+      pattern: '{"access_time":"%{yyyy-MM-dd HH:mm:ss.SSS}t","project_name":"${spring.application.name}","x-forwarded-for":"%{X-Forwarded-For}i","remote_ip":"%h","thread_name":"%I","request_method":"%m","url_path":"%U","query_string":"%q","status_code":%s,"bytes_sent":%b,"time_response_millis":%D}'
+    #tomcat日志存储根目录
+    basedir: logs/access/
+
+
