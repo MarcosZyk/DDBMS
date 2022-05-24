@@ -57,6 +57,23 @@
 
 
     <build>
+        <finalName>library</finalName><!-- 导出jar的名字 -->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>org.example.library.LibraryApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -89,6 +106,7 @@
             </plugins>
         </pluginManagement>
     </build>
+
 
     <profiles>
         <profile>
