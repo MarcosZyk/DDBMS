@@ -3,6 +3,10 @@ spring:
      cache: false
   jackson:
     time-zone: GMT+8
+  data:
+    mongodb:
+      uri: mongodb://localhost:40002/ddbs
+      database: ddbs
 
 
 # tomcat access log config
