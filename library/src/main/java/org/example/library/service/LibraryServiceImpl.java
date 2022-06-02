@@ -77,7 +77,7 @@ public class LibraryServiceImpl implements LibraryService {
   }
 
   private InputStream getPictureInputStream(String pictureName) throws FileNotFoundException {
-    File file = new File("E:\\Homework\\DDBMS\\85.jpg");
+    File file = new File("/tmp/resource/85.jpg");
     return new FileInputStream(file);
   }
 
@@ -99,7 +99,7 @@ public class LibraryServiceImpl implements LibraryService {
   }
 
   private InputStream getVideoInputStream(String videoName) throws FileNotFoundException {
-    File file = new File("E:\\Homework\\DDBMS\\video1.mp4");
+    File file = new File("/tmp/resource/video1.mp4");
     return new FileInputStream(file);
   }
 }
