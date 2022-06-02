@@ -4,6 +4,7 @@ import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.example.library.entity.Article;
 import org.example.library.entity.ReadDetail;
 import org.example.library.entity.User;
+import org.example.library.hdfs.HDFSManager;
 import org.example.library.request.ArticleRequest;
 import org.example.library.request.BeReadRequest;
 import org.example.library.request.ReadRequest;
@@ -21,6 +22,13 @@ import java.util.List;
 
 @Service
 public class LibraryServiceImpl implements LibraryService {
+
+  private final HDFSManager hdfsManager;
+
+  public LibraryServiceImpl(HDFSManager hdfsManager) {
+    this.hdfsManager = hdfsManager;
+  }
+
   @Override
   public List<Article> getDailyTopArticles() {
     return Collections.emptyList();
@@ -83,6 +91,11 @@ public class LibraryServiceImpl implements LibraryService {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  @Override
+  public String pingHDFS() throws IOException {
+    return hdfsManager.createFile();
   }
 
   private InputStream getVideoInputStream(String videoName) throws FileNotFoundException {

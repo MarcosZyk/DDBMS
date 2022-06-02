@@ -90,4 +90,13 @@ public class LibraryController {
       response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
     }
   }
+
+  @RequestMapping(value = "/hdfs", method = RequestMethod.GET)
+  public ResponseEntity<String> pingHDFS() {
+    try {
+      return ResponseEntity.ok(libraryService.pingHDFS());
+    } catch (IOException e) {
+      return ResponseEntity.ok("fail");
+    }
+  }
 }

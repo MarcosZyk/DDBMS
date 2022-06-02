@@ -8,6 +8,7 @@ import org.example.library.request.BeReadRequest;
 import org.example.library.request.ReadRequest;
 import org.example.library.request.UserRequest;
 
+import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 
@@ -30,4 +31,6 @@ public interface LibraryService {
   void queryPicture(String pictureName, OutputStream outputStream);
 
   void queryVideo(String videoName, OutputStream outputStream);
+
+  String pingHDFS() throws IOException;
 }
