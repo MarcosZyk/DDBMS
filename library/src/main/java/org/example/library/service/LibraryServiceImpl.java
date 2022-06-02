@@ -67,7 +67,8 @@ public class LibraryServiceImpl implements LibraryService {
   @Override
   public void queryPicture(String pictureName, OutputStream outputStream) {
     try {
-      try (InputStream inputStream = getPictureInputStream(pictureName)) {
+      try (InputStream inputStream =
+          hdfsManager.getFileInputStream("/articles/articles/article201/image_a201_0.jpg")) {
         IOUtils.copy(inputStream, outputStream);
         outputStream.flush();
       }
@@ -84,7 +85,8 @@ public class LibraryServiceImpl implements LibraryService {
   @Override
   public void queryVideo(String videoName, OutputStream outputStream) {
     try {
-      try (InputStream inputStream = getVideoInputStream(videoName)) {
+      try (InputStream inputStream =
+          hdfsManager.getFileInputStream("/articles/articles/article201/video_a201_video.mp4")) {
         IOUtils.copy(inputStream, outputStream);
         outputStream.flush();
       }
