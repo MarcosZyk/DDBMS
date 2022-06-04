@@ -73,9 +73,9 @@ function renderDetail(detail) {
 function renderComments(comments) {
     let element = $("#comments");
 
-    let ui = '<ul>';
+    let ui = '<ul class="list-group">';
     comments.forEach(function (detail) {
-        ui += '<li class="card"><div data-uid="'+detail.uid+'" onclick="directToUserPage(this)">'
+        ui += '<li class="card list-group-item"><div data-uid="'+detail.uid+'" onclick="directToUserPage(this)">'
         for(let key in detail){
             ui += key + ': '+detail[key]+'<br/>';
         }
@@ -89,11 +89,11 @@ function renderComments(comments) {
 function renderSimilarArticle(articles) {
     let element = $("#similar-articles");
 
-    let ui = '<ul>';
+    let ui = '<ul class="list-group">';
     articles.forEach(
         function (article) {
             ui +=
-                "<li  >" +
+                "<li  class='card list-group-item'>" +
                 "<div data-aid='" + article.aid + "' "+"onclick='directToArticlePage(this)'" +">" +
                 article.title + "<br/>" +
                 article.category + "<br/>" +
@@ -111,9 +111,9 @@ function renderSimilarArticle(articles) {
 function renderTargetUsers(users) {
     let element = $("#possible-users");
 
-    let ui = '<ul>';
+    let ui = '<ul class="list-group">';
     users.forEach(function (detail) {
-        ui += '<li class="card"><div data-uid="'+detail.uid+'" onclick="directToUserPage(this)">'
+        ui += '<li class="card list-group-item"><div data-uid="'+detail.uid+'" onclick="directToUserPage(this)">'
         for(let key in detail){
             ui += key + ': '+detail[key]+'<br/>';
         }

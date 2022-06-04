@@ -47,9 +47,9 @@ function renderUser(user) {
 function renderReadingHistory(readingInfos) {
     let element = $("#reading-infos");
 
-    let ui = '<ul>';
+    let ui = '<ul class="list-group">';
     readingInfos.forEach(function (detail) {
-        ui += '<li class="card"><div data-uid="'+detail.aid+'" onclick="directToArticlePage(this)">'
+        ui += '<li class="card list-group-item"><div data-uid="'+detail.aid+'" onclick="directToArticlePage(this)">'
         for(let key in detail){
             ui += key + ': '+detail[key]+'<br/>';
         }
@@ -63,11 +63,11 @@ function renderReadingHistory(readingInfos) {
 function renderPossibleArticles(articles) {
     let element = $("#possible-articles");
 
-    let ui = '<ul>';
+    let ui = '<ul class="list-group">';
     articles.forEach(
         function (article) {
             ui +=
-                "<li class='card'>" +
+                "<li class='card list-group-item'>" +
                 "<div data-aid='" + article.aid + "' "+"onclick='directToArticlePage(this)'" +">" +
                 article.title + "<br/>" +
                 article.category + "<br/>" +
