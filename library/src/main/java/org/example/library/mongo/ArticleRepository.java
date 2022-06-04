@@ -16,7 +16,7 @@ public interface ArticleRepository extends MongoRepository<Article, String> {
   @Query("{articleTags:'?0'}")
   List<Article> findByTag(String tag);
 
-  @Cacheable(cacheNames = "ArticleByCategory", key = "#a0 - #a1")
+  @Cacheable(cacheNames = "ArticleByCategory", key = "#a0 +' '+ #a1")
   @Query("{category:'?0', articleTags:'?1'}")
   List<Article> findByCategoryAndTag(String category, String tag);
 }

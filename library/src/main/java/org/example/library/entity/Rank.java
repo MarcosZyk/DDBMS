@@ -6,12 +6,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @Document("rank")
-public class Rank {
+public class Rank implements Serializable {
   @Id private String mongoId;
 
   // format is year:%Y-month:%m, year:%Y-week:%U, year:%Y-day:%j

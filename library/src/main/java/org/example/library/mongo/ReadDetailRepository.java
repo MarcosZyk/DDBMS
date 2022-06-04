@@ -16,7 +16,7 @@ public interface ReadDetailRepository extends MongoRepository<ReadDetail, String
   @Query("{aid:'?0'}")
   List<ReadDetail> findByAid(String aid);
 
-  @Cacheable(cacheNames = "ReadDetailByUidAndAid", key = "#a0 - #a1")
+  @Cacheable(cacheNames = "ReadDetailByUidAndAid", key = "#a0 +' '+ #a1")
   @Query("{uid:'?0', aid:'?1'}")
   List<ReadDetail> findByUidAndAid(String uid, String aid);
 }

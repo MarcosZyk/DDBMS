@@ -6,10 +6,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @Document("read")
-public class ReadDetail {
+public class ReadDetail implements Serializable {
   @Id private String mongoId;
 
   @Field("id")
