@@ -1,9 +1,12 @@
 package org.example.library.controller;
 
-import org.example.library.entity.Article;
-import org.example.library.entity.ReadDetail;
-import org.example.library.entity.User;
 import org.example.library.service.LibraryService;
+import org.example.library.vo.ArticleDetail;
+import org.example.library.vo.ArticleView;
+import org.example.library.vo.Comment;
+import org.example.library.vo.ReadingInfo;
+import org.example.library.vo.UserDetail;
+import org.example.library.vo.UserView;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -28,53 +31,53 @@ public class LibraryController {
   }
 
   @RequestMapping(value = "/dailyTop", method = RequestMethod.GET)
-  public ResponseEntity<List<Article>> getDailyTopArticles() {
+  public ResponseEntity<List<ArticleView>> getDailyTopArticles() {
     return ResponseEntity.ok(libraryService.getDailyTopArticles());
   }
 
   @RequestMapping(value = "/weeklyTop", method = RequestMethod.GET)
-  public ResponseEntity<List<Article>> getWeeklyTopArticles() {
+  public ResponseEntity<List<ArticleView>> getWeeklyTopArticles() {
     return ResponseEntity.ok(libraryService.getWeeklyTopArticles());
   }
 
   @RequestMapping(value = "/monthlyTop", method = RequestMethod.GET)
-  public ResponseEntity<List<Article>> getMonthlyTopArticles() {
+  public ResponseEntity<List<ArticleView>> getMonthlyTopArticles() {
     return ResponseEntity.ok(libraryService.getMonthlyTopArticles());
   }
 
   @RequestMapping(value = "/getArticle", method = RequestMethod.GET)
-  public ResponseEntity<Article> getArticle(@RequestParam String aid) {
+  public ResponseEntity<ArticleDetail> getArticle(@RequestParam String aid) {
     return ResponseEntity.ok(libraryService.getArticle(aid));
   }
 
   @RequestMapping(value = "/getComments", method = RequestMethod.GET)
-  public ResponseEntity<List<ReadDetail>> getComments(@RequestParam String aid) {
+  public ResponseEntity<List<Comment>> getComments(@RequestParam String aid) {
     return ResponseEntity.ok(libraryService.getComments(aid));
   }
 
   @RequestMapping(value = "/getSimilarArticles", method = RequestMethod.GET)
-  public ResponseEntity<List<Article>> getSimilarArticles(
+  public ResponseEntity<List<ArticleView>> getSimilarArticles(
       @RequestParam String category, @RequestParam String tags) {
     return ResponseEntity.ok(libraryService.getSimilarArticles(category, tags));
   }
 
   @RequestMapping(value = "/getPossibleUsers", method = RequestMethod.GET)
-  public ResponseEntity<List<User>> getPossibleUsers(@RequestParam String tags) {
+  public ResponseEntity<List<UserView>> getPossibleUsers(@RequestParam String tags) {
     return ResponseEntity.ok(libraryService.getPossibleUsers(tags));
   }
 
   @RequestMapping(value = "/getUser", method = RequestMethod.GET)
-  public ResponseEntity<User> getUser(@RequestParam String uid) {
+  public ResponseEntity<UserDetail> getUser(@RequestParam String uid) {
     return ResponseEntity.ok(libraryService.getUser(uid));
   }
 
   @RequestMapping(value = "/getReadingInfos", method = RequestMethod.GET)
-  public ResponseEntity<List<ReadDetail>> getReadingInfos(@RequestParam String uid) {
+  public ResponseEntity<List<ReadingInfo>> getReadingInfos(@RequestParam String uid) {
     return ResponseEntity.ok(libraryService.getReadingInfos(uid));
   }
 
   @RequestMapping(value = "/getPossibleArticles", method = RequestMethod.GET)
-  public ResponseEntity<List<Article>> getPossibleArticles(@RequestParam String tags) {
+  public ResponseEntity<List<ArticleView>> getPossibleArticles(@RequestParam String tags) {
     return ResponseEntity.ok(libraryService.getPossibleArticles(tags));
   }
 

@@ -1,8 +1,11 @@
 package org.example.library.service;
 
-import org.example.library.entity.Article;
-import org.example.library.entity.ReadDetail;
-import org.example.library.entity.User;
+import org.example.library.vo.ArticleDetail;
+import org.example.library.vo.ArticleView;
+import org.example.library.vo.Comment;
+import org.example.library.vo.ReadingInfo;
+import org.example.library.vo.UserDetail;
+import org.example.library.vo.UserView;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -10,25 +13,25 @@ import java.util.List;
 
 public interface LibraryService {
 
-  List<Article> getDailyTopArticles();
+  List<ArticleView> getDailyTopArticles();
 
-  List<Article> getWeeklyTopArticles();
+  List<ArticleView> getWeeklyTopArticles();
 
-  List<Article> getMonthlyTopArticles();
+  List<ArticleView> getMonthlyTopArticles();
 
-  Article getArticle(String aid);
+  ArticleDetail getArticle(String aid);
 
-  List<ReadDetail> getComments(String aid);
+  List<Comment> getComments(String aid);
 
-  List<Article> getSimilarArticles(String category, String tags);
+  List<ArticleView> getSimilarArticles(String category, String tags);
 
-  List<User> getPossibleUsers(String tags);
+  List<UserView> getPossibleUsers(String tags);
 
-  User getUser(String uid);
+  UserDetail getUser(String uid);
 
-  List<ReadDetail> getReadingInfos(String uid);
+  List<ReadingInfo> getReadingInfos(String uid);
 
-  List<Article> getPossibleArticles(String tags);
+  List<ArticleView> getPossibleArticles(String tags);
 
   void queryPicture(String pictureName, OutputStream outputStream);
 

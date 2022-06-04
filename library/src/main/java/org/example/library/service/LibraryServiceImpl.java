@@ -1,10 +1,13 @@
 package org.example.library.service;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
-import org.example.library.entity.Article;
-import org.example.library.entity.ReadDetail;
-import org.example.library.entity.User;
 import org.example.library.hdfs.HDFSManager;
+import org.example.library.vo.ArticleDetail;
+import org.example.library.vo.ArticleView;
+import org.example.library.vo.Comment;
+import org.example.library.vo.ReadingInfo;
+import org.example.library.vo.UserDetail;
+import org.example.library.vo.UserView;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -26,52 +29,52 @@ public class LibraryServiceImpl implements LibraryService {
   }
 
   @Override
-  public List<Article> getDailyTopArticles() {
+  public List<ArticleView> getDailyTopArticles() {
     return Collections.emptyList();
   }
 
   @Override
-  public List<Article> getWeeklyTopArticles() {
+  public List<ArticleView> getWeeklyTopArticles() {
     return Collections.emptyList();
   }
 
   @Override
-  public List<Article> getMonthlyTopArticles() {
+  public List<ArticleView> getMonthlyTopArticles() {
     return Collections.emptyList();
   }
 
   @Override
-  public Article getArticle(String aid) {
-    return new Article();
+  public ArticleDetail getArticle(String aid) {
+    return new ArticleDetail();
   }
 
   @Override
-  public List<ReadDetail> getComments(String aid) {
+  public List<Comment> getComments(String aid) {
     return Collections.emptyList();
   }
 
   @Override
-  public List<Article> getSimilarArticles(String category, String tags) {
+  public List<ArticleView> getSimilarArticles(String category, String tags) {
     return Collections.emptyList();
   }
 
   @Override
-  public List<User> getPossibleUsers(String tags) {
+  public List<UserView> getPossibleUsers(String tags) {
     return Collections.emptyList();
   }
 
   @Override
-  public User getUser(String uid) {
-    return new User();
+  public UserDetail getUser(String uid) {
+    return new UserDetail();
   }
 
   @Override
-  public List<ReadDetail> getReadingInfos(String uid) {
+  public List<ReadingInfo> getReadingInfos(String uid) {
     return Collections.emptyList();
   }
 
   @Override
-  public List<Article> getPossibleArticles(String tags) {
+  public List<ArticleView> getPossibleArticles(String tags) {
     return Collections.emptyList();
   }
 
