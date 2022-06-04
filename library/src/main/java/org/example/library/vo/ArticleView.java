@@ -1,5 +1,8 @@
 package org.example.library.vo;
 
+import lombok.Data;
+
+@Data
 public class ArticleView {
 
   private String aid;
