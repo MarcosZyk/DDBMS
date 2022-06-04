@@ -1,9 +1,7 @@
-let targetAid='';
-
 $(document).ready(function () {
     processDailyTop();
+    processWeeklyTop();
     processMonthlyTop();
-    processYearlyTop();
 });
 
 function processDailyTop() {
@@ -19,6 +17,22 @@ function processDailyTop() {
 
     function renderDailyTop(list) {
         renderTopList(list, $("#Daily-Top"));
+    }
+}
+
+function processWeeklyTop() {
+    getRequest(
+        '/weeklyTop',
+        function (res) {
+            renderWeeklyTop(res);
+        },
+        function (error) {
+            alert(error)
+        }
+    );
+
+    function renderWeeklyTop(list) {
+        renderTopList(list, $("#Weekly-Top"));
     }
 }
 
@@ -38,22 +52,6 @@ function processMonthlyTop() {
     }
 }
 
-function processYearlyTop() {
-    getRequest(
-        '/yearlyTop',
-        function (res) {
-            renderYearlyTop(res);
-        },
-        function (error) {
-            alert(error)
-        }
-    );
-
-    function renderYearlyTop(list) {
-        renderTopList(list, $("#Yearly-Top"));
-    }
-}
-
 function renderTopList(list, element) {
     let ui = '';
     list.forEach(
@@ -61,9 +59,9 @@ function renderTopList(list, element) {
             ui +=
                 "<li class='list-group-item'>" +
                 "<div class='article-view ' data-aid='" + article.aid + "' "+"onclick='directToArticlePage(this)'" +">" +
-                article.title + "<br/>" +
-                article.category + "<br/>" +
-                article.tags + "<br/>" +
+                "title: " + article.title + "<br/>" +
+                "category: " + article.category + "<br/>" +
+                "tags: " + article.tags + "<br/>" +
                 "</div>" +
                 "</li>";
         }

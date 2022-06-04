@@ -8,3 +8,9 @@ spring:
       uri: mongodb://localhost:40002/ddbs
       database: ddbs
 
+  cache:
+    type: redis
+  redis:
+    host: localhost
+
+

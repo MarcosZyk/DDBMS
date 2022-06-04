@@ -1,8 +1,11 @@
 package org.example.library.vo;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.example.library.entity.ReadDetail;
 
 @Data
+@NoArgsConstructor
 public class Comment {
 
   private String uid;
@@ -11,11 +14,7 @@ public class Comment {
 
   private String timestamp;
 
-  private String region;
-
-  private String category;
-
-  private String readTimeLength;
+  private Integer readTimeLength;
 
   private String agreeOrNot;
 
@@ -24,4 +23,14 @@ public class Comment {
   private String commentDetail;
 
   private String shareOrNot;
+
+  public Comment(ReadDetail readDetail) {
+    uid = readDetail.getUid();
+    timestamp = readDetail.getTimestamp();
+    readTimeLength = readDetail.getReadTimeLength();
+    agreeOrNot = readDetail.getAgreeOrNot();
+    commentOrNot = readDetail.getCommentOrNot();
+    commentDetail = readDetail.getCommentDetail();
+    shareOrNot = readDetail.getShareOrNot();
+  }
 }

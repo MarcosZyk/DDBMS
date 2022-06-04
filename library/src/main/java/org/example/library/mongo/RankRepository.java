@@ -1,6 +1,7 @@
 package org.example.library.mongo;
 
 import org.example.library.entity.Rank;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -13,6 +14,7 @@ public interface RankRepository extends MongoRepository<Rank, String> {
    * @param time the format is year:%Y-month:%m, year:%Y-week:%U, year:%Y-day:%j
    * @return articles sorted in descending order
    */
+  @Cacheable(cacheNames = "RankByTime", key = "#time")
   @Query("{timestamp:'?0'}")
   Rank findByTime(String time);
 
@@ -22,6 +24,7 @@ public interface RankRepository extends MongoRepository<Rank, String> {
    * @param temporalGranularity three granularities, including monthly, weekly, daily
    * @return ranks of specific
    */
+  @Cacheable(cacheNames = "RankByTemporalGranularity", key = "#temporalGranularity")
   @Query("{temporal_granularity:'?0'}")
   List<Rank> findByTemporalGranularity(String temporalGranularity);
 }

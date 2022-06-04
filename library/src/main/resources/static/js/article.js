@@ -2,7 +2,7 @@ $(document).ready(function () {
     let targetAid = window.location.href.split('?')[1].split('=')[1];
     let category = '';
     let tags = '';
-    getRequest(
+    getSyncRequest(
         'getArticle?aid=' + targetAid,
         function (res) {
             category = res.category;

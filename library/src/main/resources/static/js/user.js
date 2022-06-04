@@ -1,7 +1,7 @@
 $(document).ready(function () {
     let  targetUid = window.location.href.split('?')[1].split('=')[1];
     let tags = '';
-    getRequest(
+    getSyncRequest(
         '/getUser?uid=' + targetUid,
         function (res) {
             tags = res.preferTags;
@@ -49,7 +49,7 @@ function renderReadingHistory(readingInfos) {
 
     let ui = '<ul class="list-group">';
     readingInfos.forEach(function (detail) {
-        ui += '<li class="card list-group-item"><div data-uid="'+detail.aid+'" onclick="directToArticlePage(this)">'
+        ui += '<li class="card list-group-item"><div data-aid="'+detail.aid+'" onclick="directToArticlePage(this)">'
         for(let key in detail){
             ui += key + ': '+detail[key]+'<br/>';
         }

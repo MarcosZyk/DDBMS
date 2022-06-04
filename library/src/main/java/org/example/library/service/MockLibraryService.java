@@ -7,7 +7,6 @@ import org.example.library.vo.Comment;
 import org.example.library.vo.ReadingInfo;
 import org.example.library.vo.UserDetail;
 import org.example.library.vo.UserView;
-import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,7 +17,7 @@ import java.io.OutputStream;
 import java.util.Collections;
 import java.util.List;
 
-@Service
+// @Service
 public class MockLibraryService implements LibraryService {
 
   private final ArticleView articleView;
@@ -71,7 +70,7 @@ public class MockLibraryService implements LibraryService {
   }
 
   @Override
-  public List<ArticleView> getYearlyTopArticles() {
+  public List<ArticleView> getWeeklyTopArticles() {
     return Collections.singletonList(articleView);
   }
 
