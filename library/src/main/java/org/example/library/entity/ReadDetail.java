@@ -31,7 +31,7 @@ public class ReadDetail {
   private String category;
 
   @Field("readTimeLength")
-  private String readTimeLength;
+  private Integer readTimeLength;
 
   @Field("agreeOrNot")
   private String agreeOrNot;

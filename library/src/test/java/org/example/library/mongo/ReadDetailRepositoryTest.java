@@ -15,9 +15,9 @@ class ReadDetailRepositoryTest {
 
   @Test
   void findByUidAndAid() {
-    List<ReadDetail> readDetails = readDetailRepo.findByUidAndAid("677", "7495");
+    List<ReadDetail> readDetails = readDetailRepo.findByUidAndAid("6887", "1042");
     assertEquals(1, readDetails.size());
-    assertEquals("677", readDetails.get(0).getUid());
-    assertEquals("7495", readDetails.get(0).getAid());
+    assertEquals("6887", readDetails.get(0).getUid());
+    assertEquals("1042", readDetails.get(0).getAid());
   }
 }
