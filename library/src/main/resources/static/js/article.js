@@ -75,7 +75,7 @@ function renderComments(comments) {
 
     let ui = '<ul>';
     comments.forEach(function (detail) {
-        ui += '<li><div data-uid="'+detail.uid+'" onclick="directToUserPage(this)">'
+        ui += '<li class="card"><div data-uid="'+detail.uid+'" onclick="directToUserPage(this)">'
         for(let key in detail){
             ui += key + ': '+detail[key]+'<br/>';
         }
@@ -93,7 +93,7 @@ function renderSimilarArticle(articles) {
     articles.forEach(
         function (article) {
             ui +=
-                "<li>" +
+                "<li  >" +
                 "<div data-aid='" + article.aid + "' "+"onclick='directToArticlePage(this)'" +">" +
                 article.title + "<br/>" +
                 article.category + "<br/>" +
@@ -113,7 +113,7 @@ function renderTargetUsers(users) {
 
     let ui = '<ul>';
     users.forEach(function (detail) {
-        ui += '<li><div data-uid="'+detail.uid+'" onclick="directToUserPage(this)">'
+        ui += '<li class="card"><div data-uid="'+detail.uid+'" onclick="directToUserPage(this)">'
         for(let key in detail){
             ui += key + ': '+detail[key]+'<br/>';
         }

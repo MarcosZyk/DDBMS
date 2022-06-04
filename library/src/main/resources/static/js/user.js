@@ -49,7 +49,7 @@ function renderReadingHistory(readingInfos) {
 
     let ui = '<ul>';
     readingInfos.forEach(function (detail) {
-        ui += '<li><div data-uid="'+detail.aid+'" onclick="directToArticlePage(this)">'
+        ui += '<li class="card"><div data-uid="'+detail.aid+'" onclick="directToArticlePage(this)">'
         for(let key in detail){
             ui += key + ': '+detail[key]+'<br/>';
         }
@@ -67,7 +67,7 @@ function renderPossibleArticles(articles) {
     articles.forEach(
         function (article) {
             ui +=
-                "<li>" +
+                "<li class='card'>" +
                 "<div data-aid='" + article.aid + "' "+"onclick='directToArticlePage(this)'" +">" +
                 article.title + "<br/>" +
                 article.category + "<br/>" +

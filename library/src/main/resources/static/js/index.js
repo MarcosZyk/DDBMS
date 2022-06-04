@@ -59,7 +59,7 @@ function renderTopList(list, element) {
     list.forEach(
         function (article) {
             ui +=
-                "<li class='top-list-item'>" +
+                "<li class='top-list-item card'>" +
                 "<div class='article-view' data-aid='" + article.aid + "' "+"onclick='directToArticlePage(this)'" +">" +
                 article.title + "<br/>" +
                 article.category + "<br/>" +
