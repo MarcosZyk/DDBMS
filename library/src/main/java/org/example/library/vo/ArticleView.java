@@ -11,5 +11,5 @@ public class ArticleView {
 
   private String category;
 
-  private String articleTags;
+  private String tags;
 }

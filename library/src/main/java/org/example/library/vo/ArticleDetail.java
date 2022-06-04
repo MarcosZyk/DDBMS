@@ -15,7 +15,7 @@ public class ArticleDetail {
 
   private String articleAbstract;
 
-  private String articleTags;
+  private String tags;
 
   private String authors;
 

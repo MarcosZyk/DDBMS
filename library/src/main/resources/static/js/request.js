@@ -31,3 +31,15 @@ function postRequest(url, data, onSuccess, onError) {
         error: onError
     });
 }
+
+
+function directToArticlePage(element){
+    aid = $(element).attr('data-aid');
+    window.location.href = '/article?aid='+aid;
+}
+
+
+function directToUserPage(element){
+    uid = $(element).attr('data-uid');
+    window.location.href = '/user?uid='+uid;
+}

@@ -15,7 +15,7 @@ public interface LibraryService {
 
   List<ArticleView> getDailyTopArticles();
 
-  List<ArticleView> getWeeklyTopArticles();
+  List<ArticleView> getYearlyTopArticles();
 
   List<ArticleView> getMonthlyTopArticles();
 

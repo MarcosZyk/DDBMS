@@ -60,10 +60,10 @@ function renderTopList(list, element) {
         function (article) {
             ui +=
                 "<li class='top-list-item'>" +
-                "<div class='article-view' data-aid='" + article.id + "' "+"onclick='directToArticlePage(this)'" +">" +
-                article.title +
-                article.category +
-                article.tags +
+                "<div class='article-view' data-aid='" + article.aid + "' "+"onclick='directToArticlePage(this)'" +">" +
+                article.title + "<br/>" +
+                article.category + "<br/>" +
+                article.tags + "<br/>" +
                 "</div>" +
                 "</li>";
         }
@@ -71,8 +71,4 @@ function renderTopList(list, element) {
     element.append(ui);
 }
 
-function directToArticlePage(element){
-    aid = $(element).attr('data-aid');
-    window.location.href = '/article';
-}
 

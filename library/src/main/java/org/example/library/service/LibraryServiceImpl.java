@@ -33,7 +33,7 @@ public class LibraryServiceImpl implements LibraryService {
   }
 
   @Override
-  public List<ArticleView> getWeeklyTopArticles() {
+  public List<ArticleView> getYearlyTopArticles() {
     return Collections.emptyList();
   }
 

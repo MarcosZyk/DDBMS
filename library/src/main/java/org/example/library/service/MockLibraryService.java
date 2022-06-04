@@ -33,13 +33,15 @@ public class MockLibraryService implements LibraryService {
     articleView.setAid("a1");
     articleView.setTitle("Mock Article");
     articleView.setCategory("mock category");
-    articleView.setArticleTags("mock tag");
+    articleView.setTags("mock tag");
 
     articleDetail = new ArticleDetail();
     articleDetail.setAid("a1");
     articleDetail.setTitle("Mock Article");
     articleDetail.setCategory("mock category");
-    articleDetail.setArticleTags("mock tag");
+    articleDetail.setTags("mock tag");
+    articleDetail.setImage("image_1.jpg");
+    articleDetail.setVideo("video_1.jpg");
 
     userView = new UserView();
     userView.setUid("u1");
@@ -65,12 +67,11 @@ public class MockLibraryService implements LibraryService {
 
   @Override
   public List<ArticleView> getDailyTopArticles() {
-
-    return Collections.emptyList();
+    return Collections.singletonList(articleView);
   }
 
   @Override
-  public List<ArticleView> getWeeklyTopArticles() {
+  public List<ArticleView> getYearlyTopArticles() {
     return Collections.singletonList(articleView);
   }
 
@@ -127,7 +128,7 @@ public class MockLibraryService implements LibraryService {
   }
 
   private InputStream getPictureInputStream() throws FileNotFoundException {
-    File file = new File("/tmp/resource/85.jpg");
+    File file = new File("E:\\Homework\\DDBMS\\resource\\85.jpg");
     return new FileInputStream(file);
   }
 
@@ -149,7 +150,7 @@ public class MockLibraryService implements LibraryService {
   }
 
   private InputStream getVideoInputStream() throws FileNotFoundException {
-    File file = new File("/tmp/resource/video1.mp4");
+    File file = new File("E:\\Homework\\DDBMS\\resource\\video1.mp4");
     return new FileInputStream(file);
   }
 }

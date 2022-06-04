@@ -35,14 +35,14 @@ public class LibraryController {
     return ResponseEntity.ok(libraryService.getDailyTopArticles());
   }
 
-  @RequestMapping(value = "/weeklyTop", method = RequestMethod.GET)
-  public ResponseEntity<List<ArticleView>> getWeeklyTopArticles() {
-    return ResponseEntity.ok(libraryService.getWeeklyTopArticles());
-  }
-
   @RequestMapping(value = "/monthlyTop", method = RequestMethod.GET)
   public ResponseEntity<List<ArticleView>> getMonthlyTopArticles() {
     return ResponseEntity.ok(libraryService.getMonthlyTopArticles());
+  }
+
+  @RequestMapping(value = "/yearlyTop", method = RequestMethod.GET)
+  public ResponseEntity<List<ArticleView>> getYearlyTopArticles() {
+    return ResponseEntity.ok(libraryService.getYearlyTopArticles());
   }
 
   @RequestMapping(value = "/getArticle", method = RequestMethod.GET)
