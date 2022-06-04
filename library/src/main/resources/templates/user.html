@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title>User</title>
     <!-- Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" type="/css" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
     <!-- font-asesome图标库 -->
-    <link rel="stylesheet" type="/css" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"/>
 
     <!-- 引入css样式文件 -->
-    <link rel="stylesheet" type="/css" href="/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/user.css">
 
     <!-- jquery -->
     <script src="/js/jquery.js"></script>
@@ -20,18 +21,30 @@
     <script src="/js/user.js"></script>
 </head>
 <body>
+<div id="main-body">
+    <div id="info-body">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h2>User detail</h2>
+            </div>
+            <div id="user-detail" class="panel-body"></div>
+        </div>
 
-<h1>User</h1>
-<div id="user-detail">
-    <h2>User detail</h2>
-</div>
-
-<div id="reading-infos">
-    <h2>Reading History</h2>
-</div>
-
-<div id="possible-articles">
-    <h2>User may like these articles</h2>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h2>Reading History</h2>
+            </div>
+            <div id="reading-infos" class="panel-body"></div>
+        </div>
+    </div>
+    <div id="recommend">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h2>User may like these articles</h2>
+            </div>
+            <div id="possible-articles" class="panel-body"></div>
+        </div>
+    </div>
 </div>
 
 

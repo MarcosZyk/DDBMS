@@ -5,12 +5,12 @@
     <title>article</title>
 
     <!-- Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" type="/css" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
     <!-- font-asesome图标库 -->
-    <link rel="stylesheet" type="/css" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"/>
 
     <!-- 引入css样式文件 -->
-    <link rel="stylesheet" type="/css" href="/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
 
     <!-- jquery -->
     <script src="/js/jquery.js"></script>
@@ -21,22 +21,46 @@
     <script src="/js/article.js"></script>
 </head>
 <body>
-<h1>Article</h1>
-<div id="article-detail">
-    <h2>Article detail</h2>
+<div id="main-body">
+    <div id="info-body">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h2>Article detail</h2>
+            </div>
+            <div id="article-detail" class="panel-body">
+
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h2>Comments</h2>
+            </div>
+            <div id="comments" class="panel-body">
+
+            </div>
+        </div>
+    </div>
+    <div id="recommend">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h2>Similar articles</h2>
+            </div>
+            <div id="similar-articles" class="panel-body">
+
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h2>Users may like this article</h2>
+            </div>
+            <div id="possible-users" class="panel-body">
+
+            </div>
+        </div>
+    </div>
 </div>
 
-<div id="comments">
-    <h2>Comments</h2>
-</div>
-
-<div id="similar-articles">
-    <h2>Similar articles</h2>
-</div>
-
-<div id="possible-users">
-    <h2>Users may like this article</h2>
-</div>
 
 </body>
 </html>
