@@ -10,4 +10,14 @@ public class ViewController {
   public String getIndex() {
     return "index";
   }
+
+  @RequestMapping(value = "/article")
+  public String getArticle() {
+    return "article";
+  }
+
+  @RequestMapping(value = "/user")
+  public String getUser() {
+    return "user";
+  }
 }

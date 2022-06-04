@@ -3,10 +3,6 @@ package org.example.library.service;
 import org.example.library.entity.Article;
 import org.example.library.entity.ReadDetail;
 import org.example.library.entity.User;
-import org.example.library.request.ArticleRequest;
-import org.example.library.request.BeReadRequest;
-import org.example.library.request.ReadRequest;
-import org.example.library.request.UserRequest;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -20,13 +16,19 @@ public interface LibraryService {
 
   List<Article> getMonthlyTopArticles();
 
-  List<User> searchUser(UserRequest userRequest);
+  Article getArticle(String aid);
 
-  List<Article> searchArticle(ArticleRequest articleRequest);
+  List<ReadDetail> getComments(String aid);
 
-  List<ReadDetail> searchUserRead(ReadRequest readRequest);
+  List<Article> getSimilarArticles(String category, String tags);
 
-  List<ReadDetail> searchArticleBeRead(BeReadRequest beReadRequest);
+  List<User> getPossibleUsers(String tags);
+
+  User getUser(String uid);
+
+  List<ReadDetail> getReadingInfos(String uid);
+
+  List<Article> getPossibleArticles(String tags);
 
   void queryPicture(String pictureName, OutputStream outputStream);
 

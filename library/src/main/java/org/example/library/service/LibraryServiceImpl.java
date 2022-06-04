@@ -5,10 +5,6 @@ import org.example.library.entity.Article;
 import org.example.library.entity.ReadDetail;
 import org.example.library.entity.User;
 import org.example.library.hdfs.HDFSManager;
-import org.example.library.request.ArticleRequest;
-import org.example.library.request.BeReadRequest;
-import org.example.library.request.ReadRequest;
-import org.example.library.request.UserRequest;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -45,22 +41,37 @@ public class LibraryServiceImpl implements LibraryService {
   }
 
   @Override
-  public List<User> searchUser(UserRequest userRequest) {
+  public Article getArticle(String aid) {
+    return new Article();
+  }
+
+  @Override
+  public List<ReadDetail> getComments(String aid) {
     return Collections.emptyList();
   }
 
   @Override
-  public List<Article> searchArticle(ArticleRequest articleRequest) {
+  public List<Article> getSimilarArticles(String category, String tags) {
     return Collections.emptyList();
   }
 
   @Override
-  public List<ReadDetail> searchUserRead(ReadRequest readRequest) {
+  public List<User> getPossibleUsers(String tags) {
     return Collections.emptyList();
   }
 
   @Override
-  public List<ReadDetail> searchArticleBeRead(BeReadRequest beReadRequest) {
+  public User getUser(String uid) {
+    return new User();
+  }
+
+  @Override
+  public List<ReadDetail> getReadingInfos(String uid) {
+    return Collections.emptyList();
+  }
+
+  @Override
+  public List<Article> getPossibleArticles(String tags) {
     return Collections.emptyList();
   }
 
