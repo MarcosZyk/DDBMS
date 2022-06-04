@@ -14,6 +14,7 @@ import java.util.List;
 public class Rank {
   @Id private String mongoId;
 
+  // format is year:%Y-month:%m, year:%Y-week:%U, year:%Y-day:%j
   @Field("timestamp")
   private String timestamp;
 

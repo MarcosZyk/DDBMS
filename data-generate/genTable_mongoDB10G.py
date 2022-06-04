@@ -35,7 +35,7 @@ def gen_an_user(i):
     user["region"] = "Beijing" if random.random() > 0.4 else "Hong Kong"
     user["role"] = "role%d" % int(random.random() * 3)
     user["preferTags"] = "tags%d" % int(random.random() * 50)
-    user["obtainedCredits"] = str(int(random.random() * 100))
+    user["obtainedCredits"] = int(random.random() * 100)
 
     uid_region[user["uid"]] = user["region"]
     return user
@@ -126,7 +126,7 @@ def gen_an_read(i):
         read["region"] = uid_region[read["uid"]]
         read["category"] = aid_category[read["aid"]]
         # read["readOrNot"] = "1"
-        read["readTimeLength"] = str(int(random.random() * 100))
+        read["readTimeLength"] = int(random.random() * 100)
         # read["readSequence"] = str(int(random.random() * 4))
         read["agreeOrNot"] = "1" if random.random() < ps[1] else "0"
         read["commentOrNot"] = "1" if random.random() < ps[2] else "0"

@@ -52,5 +52,5 @@ public class User {
   private String preferTags;
 
   @Field("obtainedCredits")
-  private String obtainedCredits;
+  private Integer obtainedCredits;
 }
