@@ -3,6 +3,9 @@ services:
   mongos:
     container_name: mongos
     image: mongo:4.4.14
+    networks:
+      mongonet:
+        ipv4_address: 172.20.0.2
     ports:
       - 40002:27017
     volumes:
@@ -12,3 +15,9 @@ services:
 
 volumes:
   mongos: {}
+
+
+networks:
+  default:
+    name: mongonet
+    external: true
