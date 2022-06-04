@@ -61,10 +61,12 @@ function renderDetail(detail) {
         element.append('<video controls src="/video/' + videoName + '"></video>')
     }
 
+    element.append('<br/>')
+
     let imageList = detail.image.split(',');
     let image = '';
     imageList.forEach(function (imageName) {
-        image += '<img src="/picture/' + imageName + '" height="240px" alt="">';
+        image += '<img src="/picture/' + imageName + '" width="'+100/imageList.length+'%" alt="">';
     })
     element.append(image);
 

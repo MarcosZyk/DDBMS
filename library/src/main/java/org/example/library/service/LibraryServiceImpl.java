@@ -20,9 +20,6 @@ import org.example.library.vo.UserDetail;
 import org.example.library.vo.UserView;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -155,7 +152,11 @@ public class LibraryServiceImpl implements LibraryService {
   public void queryPicture(String pictureName, OutputStream outputStream) {
     try {
       try (InputStream inputStream =
-          hdfsManager.getFileInputStream("/articles/articles/article201/image_a201_0.jpg")) {
+          hdfsManager.getFileInputStream(
+              "/articles/articles/article"
+                  + pictureName.substring(7, pictureName.lastIndexOf('_'))
+                  + "/"
+                  + pictureName)) {
         IOUtils.copy(inputStream, outputStream);
         outputStream.flush();
       }
@@ -164,16 +165,15 @@ public class LibraryServiceImpl implements LibraryService {
     }
   }
 
-  private InputStream getPictureInputStream(String pictureName) throws FileNotFoundException {
-    File file = new File("/tmp/resource/85.jpg");
-    return new FileInputStream(file);
-  }
-
   @Override
   public void queryVideo(String videoName, OutputStream outputStream) {
     try {
       try (InputStream inputStream =
-          hdfsManager.getFileInputStream("/articles/articles/article201/video_a201_video.mp4")) {
+          hdfsManager.getFileInputStream(
+              "/articles/articles/article"
+                  + videoName.substring(7, videoName.lastIndexOf('_'))
+                  + "/"
+                  + videoName)) {
         IOUtils.copy(inputStream, outputStream);
         outputStream.flush();
       }
@@ -185,10 +185,5 @@ public class LibraryServiceImpl implements LibraryService {
   @Override
   public String pingHDFS() throws IOException {
     return hdfsManager.createFile();
-  }
-
-  private InputStream getVideoInputStream(String videoName) throws FileNotFoundException {
-    File file = new File("/tmp/resource/video1.mp4");
-    return new FileInputStream(file);
   }
 }

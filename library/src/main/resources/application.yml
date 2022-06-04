@@ -5,10 +5,11 @@ spring:
     time-zone: GMT+8
   data:
     mongodb:
-      uri: mongodb://localhost:40002/ddbms
+#      uri: mongodb://localhost:40002/ddbms
+      uri: mongodb://172.21.0.7:27017/ddbms
       database: ddbms
 
   redis:
-    host: localhost
-
+    host: 172.21.0.6
+#    host: localhost
 
