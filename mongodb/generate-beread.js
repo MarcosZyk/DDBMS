@@ -1,4 +1,4 @@
-db = db.getSiblingDB('ddbs');
+db = db.getSiblingDB('ddbms');
 db.read.aggregate([
   {
     $group: {
