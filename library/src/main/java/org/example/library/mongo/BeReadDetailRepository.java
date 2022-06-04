@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 public interface BeReadDetailRepository extends MongoRepository<BeReadDetail, String> {
-  @Cacheable(cacheNames = "BeReadFindByAid", key = "#aid")
+  @Cacheable(cacheNames = "BeReadFindByAid", key = "#a0")
   @Query("{aid:'?0'}")
   BeReadDetail findByAid(String aid);
 }

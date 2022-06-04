@@ -14,7 +14,7 @@ public interface RankRepository extends MongoRepository<Rank, String> {
    * @param time the format is year:%Y-month:%m, year:%Y-week:%U, year:%Y-day:%j
    * @return articles sorted in descending order
    */
-  @Cacheable(cacheNames = "RankByTime", key = "#time")
+  @Cacheable(cacheNames = "RankByTime", key = "#a0")
   @Query("{timestamp:'?0'}")
   Rank findByTime(String time);
 
@@ -24,7 +24,7 @@ public interface RankRepository extends MongoRepository<Rank, String> {
    * @param temporalGranularity three granularities, including monthly, weekly, daily
    * @return ranks of specific
    */
-  @Cacheable(cacheNames = "RankByTemporalGranularity", key = "#temporalGranularity")
+  @Cacheable(cacheNames = "RankByTemporalGranularity", key = "#a0")
   @Query("{temporal_granularity:'?0'}")
   List<Rank> findByTemporalGranularity(String temporalGranularity);
 }
