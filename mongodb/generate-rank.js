@@ -1,4 +1,4 @@
-db = db.getSiblingDB('ddbs');
+db = db.getSiblingDB('ddbms');
 
 // monthly
 db.read.aggregate([

@@ -5,8 +5,8 @@ spring:
     time-zone: GMT+8
   data:
     mongodb:
-      uri: mongodb://localhost:40002/ddbs
-      database: ddbs
+      uri: mongodb://localhost:40002/ddbms
+      database: ddbms
 
   cache:
     type: redis
