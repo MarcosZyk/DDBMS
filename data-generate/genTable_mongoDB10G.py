@@ -1,7 +1,5 @@
 import json
 import random
-import numpy as np
-from PIL import Image
 from shutil import copyfile
 import os
 
@@ -11,6 +9,7 @@ READS_NUM = 1000000
 
 uid_region = {}
 aid_lang = {}
+aid_category = {}
 
 
 # Beijing:60%   Hong Kong:40%
@@ -95,6 +94,7 @@ def gen_an_article(i):
         article["video"] = ""
 
     aid_lang[article["aid"]] = article["language"]
+    aid_category[article["aid"]] = article["category"]
     return article
 
 
@@ -123,6 +123,8 @@ def gen_an_read(i):
         # read["readOrNot"] = "0";
         return gen_an_read(i)
     else:
+        read["region"] = uid_region[read["uid"]]
+        read["category"] = aid_category[read["aid"]]
         # read["readOrNot"] = "1"
         read["readTimeLength"] = str(int(random.random() * 100))
         # read["readSequence"] = str(int(random.random() * 4))
