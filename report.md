@@ -102,7 +102,25 @@ zhm
 
 ### 功能展示
 
-以下图片展示了上文所描述的App功能。
+#### 文章热榜功能
+
+![redis_process](figures/top_articles.png)
+
+
+
+#### 文章主页
+
+![redis_process](figures/article_detail.png)
+
+
+
+![redis_process](figures/article_comments.png)
+
+
+
+#### 读者主页
+
+![redis_process](figures/user_page.png)
 
 
 
