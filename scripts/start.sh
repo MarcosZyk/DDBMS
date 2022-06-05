@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # hdfs
-docker-compose -f ../hdfs/docker-compose.yml start -d
+docker-compose -f ../hdfs/docker-compose.yml start
 sleep 10
 
 
@@ -11,11 +11,11 @@ docker start redis
 
 # mongodb
 # config servers
-docker-compose -f ../mongodb/docker-compose-configsvr.yml start -d
+docker-compose -f ../mongodb/docker-compose-configsvr.yml start
 # shard servers
-docker-compose -f ../mongodb/docker-compose-shardsvr.yml start -d
+docker-compose -f ../mongodb/docker-compose-shardsvr.yml start
 # mongos
-docker-compose -f ../mongodb/docker-compose-mongos.yml start -d
+docker-compose -f ../mongodb/docker-compose-mongos.yml start
 sleep 5
 
 
