@@ -1,6 +1,19 @@
 # DDBMS 部署方案
 
-## 安装与配置
+## 安装
+
+需要安装以下环境
+
+* Docker
+* Java 8
+* Maven
+* [mongosh](https://www.mongodb.com/docs/mongodb-shell/install/)
+* [MongoDB Database Tools](https://www.mongodb.com/docs/database-tools/installation/installation/)
+* [Mongo Compass](https://www.mongodb.com/docs/compass/current/install/)
+
+
+
+## 部署
 
 ### 数据生成脚本
 
@@ -29,7 +42,7 @@
 
 ## 系统使用
 
-在宿主机浏览器访问localhost:8080，即可进入app主页。
+在宿主机浏览器访问 localhost:8080，即可进入 app 主页。
 
 #### 主页
 
